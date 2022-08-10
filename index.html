@@ -7,6 +7,7 @@
         to { background-color: #0099ff; }
       }
       body {
+        padding: 1em;
         animation-play-state: paused;
         animation-name: pulse;
         animation-duration: 2000ms;
@@ -23,10 +24,11 @@
   </head>
   <body>
     <h1>
-      the world's heartbeat
+      the heartbeat of the world
     </h1>
+    <br>
     <p>
-      this webpage will pulse at the exact same time across every single device that accesses it. if your device can vibrate, you should be able to feel it.
+      this webpage will pulse at the exact same time across every single device that accesses it. if your device can vibrate, you should be able to feel it. you may have to tap the screen to allow vibration.
     </p>
     <br>
     <p>
@@ -40,7 +42,7 @@
       setTimeout(() => {
       	document.body.style.animationPlayState = "running";
 				setInterval(() => {
-          navigator.vibrate(50);
+          navigator.vibrate(70);
          }, periodMs);
       }, nextSecondDelta);
     </script>
