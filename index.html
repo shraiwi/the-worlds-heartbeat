@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <style>
+      @keyframes pulse {
+        from { background-color: #86cefe; }
+        50% { background-color: #0099ff; }
+        to { background-color: #0099ff; }
+      }
+      body {
+        animation-play-state: paused;
+        animation-name: pulse;
+        animation-duration: 2000ms;
+        animation-iteration-count: infinite;
+      }
+      h1, p {
+        margin: 0;
+        color: white;
+        font-family: sans-serif;
+      }
+      h1 { font-size: 2em }
+      p { font-size: 1em }
+    </style>
+  </head>
+  <body>
+    <h1>
+      the heartbeat of the world
+    </h1>
+    <p>
+      this webpage will pulse at the exact same time across every single device that accesses it. if your device can vibrate, you should be able to feel it.
+    </p>
+    <br>
+    <p>
+      even if someone is thousands of miles away, they will observe the exact same pulse, coordinated down to the millisecond. although you might be physically isolated from one another, technology can bridge the gap and bring us closer than you think.
+    </p>
+    <script src="https://use.ntpjs.org/ntp.js" async defer></script>
+    <script>
+    	const periodMs = 2000;
+      const epochMs = new Date().getTime();
+      const nextSecondDelta = periodMs - epochMs % periodMs;
+      setTimeout(() => {
+      	document.body.style.animationPlayState = "running";
+				setInterval(() => {
+          navigator.vibrate(50);
+         }, periodMs);
+      }, nextSecondDelta);
+    </script>
+  </body>
+</html>
